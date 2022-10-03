@@ -288,7 +288,7 @@ pgconn_s_sync_connect(int argc, VALUE *argv, VALUE klass)
 	if (PQstatus(this->pgconn) == CONNECTION_BAD)
 		pg_raise_conn_error( rb_eConnectionBad, self, "%s", PQerrorMessage(this->pgconn));
 
-	pgconn_set_default_encoding( self );
+	/*pgconn_set_default_encoding( self );*/
 
 	if (rb_block_given_p()) {
 		return rb_ensure(rb_yield, self, pgconn_finish, self);
